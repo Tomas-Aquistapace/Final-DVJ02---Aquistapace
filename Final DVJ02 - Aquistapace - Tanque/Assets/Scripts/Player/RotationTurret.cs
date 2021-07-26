@@ -17,9 +17,12 @@ public class RotationTurret : MonoBehaviour
     private Vector3 destinyRot;
     private Vector3 turretLookDir;
 
+    ShootMissile shootMissile;
+
     void Start()
     {
         camera = GameObject.FindObjectOfType<Camera>();
+        shootMissile = GetComponent<ShootMissile>();
 
         turretLookDir = reticleTrans.position - turret.position;
         turretLookDir.y = 0f;
@@ -48,6 +51,8 @@ public class RotationTurret : MonoBehaviour
         {
             turretLookDir = reticleTrans.position - turret.position;
             turretLookDir.y = 0f;
+
+            shootMissile.FireTheTurret();
         }
         
         destinyRot = Vector3.Lerp(destinyRot, turretLookDir, Time.deltaTime * speedRotation);
