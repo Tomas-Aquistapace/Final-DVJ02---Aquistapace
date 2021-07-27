@@ -8,7 +8,10 @@ public class TankAnimation : MonoBehaviour
     public GameObject[] wheels;
     [SerializeField] float speedRotation = 10f;
 
+    [Header("Fire Animation")]
     public Animator animator;
+    public GameObject shockWave;
+    public Transform canyonTip;
 
     public void RotateWheels(float rotation)
     {
@@ -24,5 +27,8 @@ public class TankAnimation : MonoBehaviour
     public void FireAnimation()
     {
         animator.SetTrigger("Fire");
+
+        GameObject particle = Instantiate(shockWave, canyonTip.position, canyonTip.rotation);
+        Destroy(particle, 1f);
     }
 }
