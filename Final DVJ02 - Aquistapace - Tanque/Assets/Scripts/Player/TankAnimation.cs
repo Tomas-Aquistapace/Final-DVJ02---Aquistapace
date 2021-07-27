@@ -13,6 +13,15 @@ public class TankAnimation : MonoBehaviour
     public GameObject shockWave;
     public Transform canyonTip;
 
+    [Header("Loader Particles")]
+    public GameObject[] radioLoader;
+
+    void Start()
+    {
+        radioLoader[0].SetActive(true);
+        radioLoader[1].SetActive(false);
+    }
+
     public void RotateWheels(float rotation)
     {
         if(rotation != 0)
@@ -30,5 +39,19 @@ public class TankAnimation : MonoBehaviour
 
         GameObject particle = Instantiate(shockWave, canyonTip.position, canyonTip.rotation);
         Destroy(particle, 1f);
+    }
+
+    public void IsLoaded(bool state)
+    {
+        if (state)
+        {
+            radioLoader[0].SetActive(true);
+            radioLoader[1].SetActive(false);
+        }
+        else
+        {
+            radioLoader[0].SetActive(false);
+            radioLoader[1].SetActive(true);
+        }
     }
 }

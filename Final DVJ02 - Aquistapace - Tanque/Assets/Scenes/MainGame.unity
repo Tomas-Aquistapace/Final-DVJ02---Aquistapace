@@ -476,6 +476,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2088620185543019541, guid: 98e09303f95d0c0499ede3dddcae6784,
+        type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2713216198060638754, guid: 98e09303f95d0c0499ede3dddcae6784,
         type: 3}
       propertyPath: m_RootOrder
@@ -546,5 +551,25 @@ PrefabInstance:
       propertyPath: reticleTrans
       value: 
       objectReference: {fileID: 1466388811}
+    - target: {fileID: 5373733566218002103, guid: 98e09303f95d0c0499ede3dddcae6784,
+        type: 3}
+      propertyPath: prewarm
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373733566218002103, guid: 98e09303f95d0c0499ede3dddcae6784,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.b
+      value: 0.13803846
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373733566218002103, guid: 98e09303f95d0c0499ede3dddcae6784,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.g
+      value: 0.25451133
+      objectReference: {fileID: 0}
+    - target: {fileID: 5373733566218002103, guid: 98e09303f95d0c0499ede3dddcae6784,
+        type: 3}
+      propertyPath: InitialModule.startColor.maxColor.r
+      value: 0.8867924
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 98e09303f95d0c0499ede3dddcae6784, type: 3}

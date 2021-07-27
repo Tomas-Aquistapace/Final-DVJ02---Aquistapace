@@ -1,11 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CollitionMissile : MonoBehaviour
 {
-
-    [SerializeField] GameObject explosionParticle;
+    public GameObject explosionParticle;
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -14,5 +11,4 @@ public class CollitionMissile : MonoBehaviour
 
         Destroy(this.gameObject);
     }
-
 }

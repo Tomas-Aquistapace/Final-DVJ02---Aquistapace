@@ -1,22 +1,34 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class ShootMissile : MonoBehaviour
 {
     public GameObject missilePref;
     public Transform turretDirection;
     public Transform reticleTrans;
+    public float rechargeTime = 2f;
 
     TankAnimation tankAnimation;
+    bool isLoaded;
 
     void Start()
     {
         tankAnimation = GetComponent<TankAnimation>();
+
+        isLoaded = true;
     }
 
-    public void FireTheTurret()
+    void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        FireTheTurret();
+    }
+
+    void FireTheTurret()
+    {
+        if (Input.GetMouseButtonDown(1) && isLoaded)
         {
+            StartCoroutine(Recharge());
+
             float newSpeed = Vector3.Distance(turretDirection.position, reticleTrans.position) * 2;
 
             GameObject missile = Instantiate(missilePref, turretDirection.position, turretDirection.rotation);
@@ -26,5 +38,23 @@ public class ShootMissile : MonoBehaviour
 
             Destroy(missile, 2f);
         }
+    }
+
+    IEnumerator Recharge()
+    {
+        float time = 0f;
+
+        isLoaded = false;
+        tankAnimation.IsLoaded(isLoaded);
+
+        while (time <= rechargeTime)
+        {
+            time += Time.deltaTime;
+
+            yield return null;
+        }
+
+        isLoaded = true;
+        tankAnimation.IsLoaded(isLoaded);
     }
 }
