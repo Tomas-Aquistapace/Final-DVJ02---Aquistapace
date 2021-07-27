@@ -8,6 +8,12 @@ public class ShootMissile : MonoBehaviour
     public Transform turretDirection;
     public Transform reticleTrans;
 
+    TankAnimation tankAnimation;
+
+    void Start()
+    {
+        tankAnimation = GetComponent<TankAnimation>();
+    }
 
     public void FireTheTurret()
     {
@@ -17,6 +23,8 @@ public class ShootMissile : MonoBehaviour
 
             GameObject missile = Instantiate(missilePref, turretDirection.position, turretDirection.rotation);
             missile.GetComponent<Rigidbody>().velocity = turretDirection.forward * newSpeed;
+
+            tankAnimation.FireAnimation();
 
             Destroy(missile, 2f);
         }

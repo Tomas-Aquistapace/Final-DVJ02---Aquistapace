@@ -5,13 +5,13 @@ using UnityEngine;
 public class RotationTurret : MonoBehaviour
 {
     [Header("Reticle")]
-    [SerializeField] Transform reticleTrans;
-    [SerializeField] Vector3 reticleAltitude;
-    [SerializeField] LayerMask particularLayer;
+    public Transform reticleTrans;
+    public Vector3 reticleAltitude;
+    public LayerMask particularLayer;
 
     [Header("Rotation Turret")]
-    [SerializeField] float speedRotation = 10f;
-    [SerializeField] Transform turret;
+    public float speedRotation = 10f;
+    public Transform turret;
 
     private new Camera camera;
     private Vector3 destinyRot;
@@ -54,7 +54,7 @@ public class RotationTurret : MonoBehaviour
 
             shootMissile.FireTheTurret();
         }
-        
+
         destinyRot = Vector3.Lerp(destinyRot, turretLookDir, Time.deltaTime * speedRotation);
         turret.rotation = Quaternion.LookRotation(destinyRot);
     }
