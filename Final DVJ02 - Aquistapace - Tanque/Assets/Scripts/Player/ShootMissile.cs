@@ -14,7 +14,6 @@ public class ShootMissile : MonoBehaviour
     void Start()
     {
         tankAnimation = GetComponent<TankAnimation>();
-
         isLoaded = true;
     }
 
@@ -29,7 +28,7 @@ public class ShootMissile : MonoBehaviour
         {
             StartCoroutine(Recharge());
 
-            float newSpeed = Vector3.Distance(turretDirection.position, reticleTrans.position) * 2;
+            float newSpeed = Vector3.Distance(turretDirection.position, reticleTrans.position) * 2.25f;
 
             GameObject missile = Instantiate(missilePref, turretDirection.position, turretDirection.rotation);
             missile.GetComponent<Rigidbody>().velocity = turretDirection.forward * newSpeed;

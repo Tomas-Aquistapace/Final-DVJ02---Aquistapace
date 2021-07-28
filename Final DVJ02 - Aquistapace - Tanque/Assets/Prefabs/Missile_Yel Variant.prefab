@@ -41,6 +41,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce3953311564794b95b5debfa792263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  objectiveTag: Enemy
+  damage: 10
   explosionParticle: {fileID: 1150934714579380, guid: 779aa8c25fbd0e1488637639c9fff976,
     type: 3}
 --- !u!1001 &6898350355150676512
@@ -109,6 +111,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Missile_Yel Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 9094009511398482965, guid: ebc8ef3e1eaa76c44aacba4e5ec67bf4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebc8ef3e1eaa76c44aacba4e5ec67bf4, type: 3}

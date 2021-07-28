@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 705878112}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Canyon_Tip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 4470149687763759387}
   - component: {fileID: 6327133314268152608}
   - component: {fileID: 9046386120300319586}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankFree_Wheel_b_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 1399795582645198503}
   - component: {fileID: 1271071275712145885}
   - component: {fileID: 1270308585506919187}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4872,7 +4872,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1399676295996437043}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: smoke_thick (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4905,7 +4905,7 @@ GameObject:
   - component: {fileID: 3802981531043004300}
   - component: {fileID: 3546814600489082000}
   - component: {fileID: 3434182930519244198}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankFree_Canon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4984,7 +4984,7 @@ GameObject:
   - component: {fileID: 3224157866680605540}
   - component: {fileID: 2088620185543019541}
   - component: {fileID: 9112294770486847233}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Loaded
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5020,7 +5020,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -9738,7 +9738,7 @@ GameObject:
   - component: {fileID: 4359409996457025971}
   - component: {fileID: 5421993589427210497}
   - component: {fileID: 3348007857315075715}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankFree_Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9837,7 +9837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2424917347868941137}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Radio_Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9871,13 +9871,14 @@ GameObject:
   - component: {fileID: 2713216198060638754}
   - component: {fileID: 3239057885757496632}
   - component: {fileID: 3239057885757496633}
+  - component: {fileID: 624513950055217554}
   - component: {fileID: 5118500853932484838}
   - component: {fileID: 3239057885757496634}
   - component: {fileID: 3239057885757496635}
   - component: {fileID: 1633659985210255459}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player Tank
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9931,6 +9932,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3608923, y: 1.439508, z: 2.4421997}
   m_Center: {x: 0.0013165474, y: -0.09383917, z: 0.030406952}
+--- !u!114 &624513950055217554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4392115384926533011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0496bd45822bd7f468bf959281713020, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5118500853932484838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9998,7 +10011,7 @@ MonoBehaviour:
   - {fileID: 4908105756608639251}
   - {fileID: 4581868615212477963}
   - {fileID: 7437761365909742080}
-  speedRotation: 100
+  speedRotation: 140
   animator: {fileID: 3348007857315075715}
   shockWave: {fileID: 2062406350526352771, guid: 1698f5fbc2c5dc04581b6642e6ceaed4,
     type: 3}
@@ -10017,7 +10030,7 @@ GameObject:
   - component: {fileID: 2421400051292334818}
   - component: {fileID: 3439179251884897825}
   - component: {fileID: 7691993374544884486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankFree_Wheel_f_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10097,7 +10110,7 @@ GameObject:
   - component: {fileID: 8302049853949900405}
   - component: {fileID: 7086472725447837691}
   - component: {fileID: 5853068034734994967}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankFree_Wheel_b_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10177,7 +10190,7 @@ GameObject:
   - component: {fileID: 5118500853087644869}
   - component: {fileID: 5118500853087644868}
   - component: {fileID: 5118500853087644884}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankFree_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10277,7 +10290,7 @@ GameObject:
   - component: {fileID: 5227475472513947221}
   - component: {fileID: 5351801396318363951}
   - component: {fileID: 5352424223564127201}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15028,7 +15041,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5227005403214019265}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: smoke_thick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15061,7 +15074,7 @@ GameObject:
   - component: {fileID: 409937624737662810}
   - component: {fileID: 5373733566218002103}
   - component: {fileID: 725751904232165645}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Loading
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15097,7 +15110,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -15272,7 +15285,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 0.99215686, g: 0.5442737, b: 0.46274507, a: 1}
+      maxColor: {r: 0.8867924, g: 0.25451133, b: 0.13803846, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -19814,7 +19827,7 @@ GameObject:
   - component: {fileID: 595291767182081127}
   - component: {fileID: 1047595884497954879}
   - component: {fileID: 3143650219103747234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: TankFree_Wheel_f_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
