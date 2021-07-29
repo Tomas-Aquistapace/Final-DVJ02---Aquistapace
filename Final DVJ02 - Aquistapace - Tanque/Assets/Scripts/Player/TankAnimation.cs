@@ -12,12 +12,32 @@ public class TankAnimation : MonoBehaviour
     public Transform canyonTip;
 
     [Header("Loader Particles")]
-    public GameObject[] radioLoader;
+    [SerializeField] GameObject[] radioLoader;
+    [SerializeField] ParticleSystem[] bullSmokeInitial;
+    [SerializeField] ParticleSystem[] bullSmokeLoader;
+    [SerializeField] Gradient initialColor;
+    [SerializeField] Gradient loadingColor;
 
     void Start()
     {
         radioLoader[0].SetActive(true);
         radioLoader[1].SetActive(false);
+
+        foreach (ParticleSystem bullParticle in bullSmokeInitial)
+        {
+            var col = bullParticle.colorOverLifetime;
+            col.color = initialColor;
+
+            //bullParticle.Stop(false);
+        }
+
+        foreach (ParticleSystem bullParticle in bullSmokeLoader)
+        {
+            var col = bullParticle.colorOverLifetime;
+            col.color = loadingColor;
+
+            bullParticle.Stop(true);
+        }
     }
 
     public void RotateWheels(float rotation)
@@ -39,7 +59,7 @@ public class TankAnimation : MonoBehaviour
         Destroy(particle, 1f);
     }
 
-    public void IsLoaded(bool state)
+    public void MissileLoader(bool state)
     {
         if (state)
         {
@@ -50,6 +70,46 @@ public class TankAnimation : MonoBehaviour
         {
             radioLoader[0].SetActive(false);
             radioLoader[1].SetActive(true);
+        }
+    }
+
+    public void BullStrokeLoader(bool itsCharged)
+    {
+        if (itsCharged)
+        {
+            foreach (ParticleSystem bullParticle in bullSmokeInitial)
+            {
+                var col = bullParticle.colorOverLifetime;
+                col.color = initialColor;
+
+                bullParticle.Play(true);
+            }
+
+            foreach (ParticleSystem bullParticle in bullSmokeLoader)
+            {
+                var col = bullParticle.colorOverLifetime;
+                col.color = loadingColor;
+
+                bullParticle.Stop(true);
+            }
+        }
+        else
+        {
+            foreach (ParticleSystem bullParticle in bullSmokeInitial)
+            {
+                var col = bullParticle.colorOverLifetime;
+                col.color = initialColor;
+
+                bullParticle.Stop(true);
+            }
+
+            foreach (ParticleSystem bullParticle in bullSmokeLoader)
+            {
+                var col = bullParticle.colorOverLifetime;
+                col.color = loadingColor;
+
+                bullParticle.Play(true);
+            }
         }
     }
 }

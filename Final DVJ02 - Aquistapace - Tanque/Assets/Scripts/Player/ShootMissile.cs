@@ -44,7 +44,7 @@ public class ShootMissile : MonoBehaviour
         float time = 0f;
 
         isLoaded = false;
-        tankAnimation.IsLoaded(isLoaded);
+        tankAnimation.MissileLoader(isLoaded);
 
         while (time <= rechargeTime)
         {
@@ -54,6 +54,6 @@ public class ShootMissile : MonoBehaviour
         }
 
         isLoaded = true;
-        tankAnimation.IsLoaded(isLoaded);
+        tankAnimation.MissileLoader(isLoaded);
     }
 }

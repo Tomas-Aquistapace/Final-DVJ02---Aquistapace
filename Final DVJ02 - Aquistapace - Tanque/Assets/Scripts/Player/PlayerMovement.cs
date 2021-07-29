@@ -1,23 +1,30 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
+    enum BullStates
+    {
+        Ready,
+        Jumping,
+        Loading
+    };
+    BullStates bullStates;
+
+
     [Header("Basic Movement")]
     [SerializeField] float speedMovement = 10f;
     [SerializeField] float speedRotation = 6f;
 
     [Header("Bull Stroke")]
-    [SerializeField] bool hableToStroke = true;
     [SerializeField] float timeToLoad = 3f;
     [SerializeField] int collisionDamage = 5;
     [SerializeField] float forceStroke = 20f;
-    [SerializeField] float minSpeedDamage = 10f; // desuso
     [SerializeField] string[] objectivesTags;
 
     Rigidbody rig;
     PlayerStats player;
     TankAnimation tankAnimation;
-    float speedModifier = 10f;
 
     float vertical;
     float horizontal;
@@ -28,6 +35,8 @@ public class PlayerMovement : MonoBehaviour
         tankAnimation = GetComponent<TankAnimation>();
 
         player = GetComponent<PlayerStats>();
+
+        bullStates = BullStates.Ready;
     }
 
     void Update()
@@ -57,12 +66,11 @@ public class PlayerMovement : MonoBehaviour
 
     void BullInput()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && hableToStroke)
+        if (Input.GetKeyDown(KeyCode.Space) && bullStates == BullStates.Ready)
         {
-
             rig.AddForce(transform.forward * forceStroke, ForceMode.Acceleration);
 
-
+            StartCoroutine(BullStroke());
         }
     }
 
@@ -72,15 +80,12 @@ public class PlayerMovement : MonoBehaviour
         {
             if (collision.transform.tag == objectivesTags[i])
             {
-                float actualSpeed = rig.velocity.magnitude * speedModifier;
-                Debug.Log(actualSpeed);
-
-                if (actualSpeed >= minSpeedDamage)
+                if (bullStates == BullStates.Jumping)
                 {
                     collision.transform.GetComponent<IDamageable>().TakeDamage(collisionDamage);
                 }
-                
-                if(collision.transform.GetComponent <IObstacle>() != null)
+
+                if (collision.transform.GetComponent<IObstacle>() != null)
                 {
                     player.TakeDamage(collision.transform.GetComponent<IObstacle>().MakeDamage());
                 }
@@ -88,6 +93,35 @@ public class PlayerMovement : MonoBehaviour
                 break;
             }
         }
-
     }
+
+    IEnumerator BullStroke()
+    {
+        float time = 0;
+
+        bullStates = BullStates.Jumping;
+        rig.constraints = RigidbodyConstraints.FreezeRotationX;
+
+        tankAnimation.BullStrokeLoader(false);
+
+        while (time <= 1)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        bullStates = BullStates.Loading;
+        rig.constraints = RigidbodyConstraints.None;
+        time = 0;
+
+        while (time <= timeToLoad)
+        {
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        bullStates = BullStates.Ready;
+        tankAnimation.BullStrokeLoader(true);
+    }
+
 }
