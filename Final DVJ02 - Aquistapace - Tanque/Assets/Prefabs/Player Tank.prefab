@@ -41,7 +41,8 @@ GameObject:
   - component: {fileID: 4470149687763759387}
   - component: {fileID: 6327133314268152608}
   - component: {fileID: 9046386120300319586}
-  m_Layer: 9
+  - component: {fileID: 694635425}
+  m_Layer: 8
   m_Name: TankFree_Wheel_b_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -110,6 +111,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &694635425
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274973284864431949}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.44637656
+  m_Height: 0.8927531
+  m_Direction: 1
+  m_Center: {x: -0.00000005960464, y: -0.000000059604645, z: -0.00000011920929}
 --- !u!1 &1398241866700863587
 GameObject:
   m_ObjectHideFlags: 0
@@ -9911,14 +9926,14 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4392115384926533011}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1500
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &3239057885757496633
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9976,7 +9991,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMovement: 5
   speedRotation: 2
+  hableToStroke: 1
+  timeToLoad: 3
   collisionDamage: 5
+  forceStroke: 300
   minSpeedDamage: 2.5
   objectivesTags:
   - Enemy
@@ -10036,7 +10054,8 @@ GameObject:
   - component: {fileID: 2421400051292334818}
   - component: {fileID: 3439179251884897825}
   - component: {fileID: 7691993374544884486}
-  m_Layer: 9
+  - component: {fileID: 1059525808}
+  m_Layer: 8
   m_Name: TankFree_Wheel_f_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10105,6 +10124,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &1059525808
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4581868615212477963}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4426283
+  m_Height: 0.89275277
+  m_Direction: 1
+  m_Center: {x: 0.00000027567148, y: 0.000000044703484, z: 0.00000014901161}
 --- !u!1 &4908105756608639251
 GameObject:
   m_ObjectHideFlags: 0
@@ -10116,7 +10149,8 @@ GameObject:
   - component: {fileID: 8302049853949900405}
   - component: {fileID: 7086472725447837691}
   - component: {fileID: 5853068034734994967}
-  m_Layer: 9
+  - component: {fileID: 1580663443}
+  m_Layer: 8
   m_Name: TankFree_Wheel_b_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10184,6 +10218,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &1580663443
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4908105756608639251}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4463762
+  m_Height: 0.88525665
+  m_Direction: 1
+  m_Center: {x: -0.00000017136335, y: -0.00000013411045, z: 0.000000074505806}
 --- !u!1 &5118500853087644874
 GameObject:
   m_ObjectHideFlags: 0
@@ -19833,7 +19881,8 @@ GameObject:
   - component: {fileID: 595291767182081127}
   - component: {fileID: 1047595884497954879}
   - component: {fileID: 3143650219103747234}
-  m_Layer: 9
+  - component: {fileID: 1832180360}
+  m_Layer: 8
   m_Name: TankFree_Wheel_f_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19901,3 +19950,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!136 &1832180360
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7437761365909742080}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.44262832
+  m_Height: 0.8927525
+  m_Direction: 1
+  m_Center: {x: 0.000000067055225, y: -0.000000029802322, z: -0.000000029802322}
