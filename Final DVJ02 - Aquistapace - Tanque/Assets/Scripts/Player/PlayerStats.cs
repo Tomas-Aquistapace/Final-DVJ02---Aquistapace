@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
-    int life = 100;
+    public int life = 100;
 
     void Start()
     {

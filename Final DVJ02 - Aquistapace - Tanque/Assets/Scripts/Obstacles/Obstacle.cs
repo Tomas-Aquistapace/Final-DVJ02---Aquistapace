@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoxObstacle : MonoBehaviour, IDamageable
+public class Obstacle : MonoBehaviour, IDamageable, IObstacle
 {
-    public int life = 1;
+    [SerializeField] int life = 1;
+    [SerializeField] int collisionDamage = 0;
 
     void Start()
     {
@@ -24,5 +25,10 @@ public class BoxObstacle : MonoBehaviour, IDamageable
     public void Eliminated()
     {
         Destroy(this.gameObject);
+    }
+
+    public int MakeDamage()
+    {
+        return collisionDamage;
     }
 }

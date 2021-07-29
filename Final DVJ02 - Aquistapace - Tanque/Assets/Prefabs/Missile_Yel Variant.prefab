@@ -41,8 +41,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce3953311564794b95b5debfa792263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectiveTag: Enemy
+  objectivesTags:
+  - Enemy
+  - Obstacle
   damage: 10
+  blastObj: {fileID: 1539440212861561616, guid: 1df6606f4afdada4faee17d4998d182e,
+    type: 3}
   explosionParticle: {fileID: 1150934714579380, guid: 779aa8c25fbd0e1488637639c9fff976,
     type: 3}
 --- !u!1001 &6898350355150676512

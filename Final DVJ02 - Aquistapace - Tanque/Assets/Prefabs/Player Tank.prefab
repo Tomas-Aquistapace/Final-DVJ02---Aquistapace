@@ -9944,6 +9944,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0496bd45822bd7f468bf959281713020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  life: 100
 --- !u!114 &5118500853932484838
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9975,6 +9976,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedMovement: 5
   speedRotation: 2
+  collisionDamage: 5
+  minSpeedDamage: 2.5
+  objectivesTags:
+  - Enemy
+  - Obstacle
 --- !u!114 &3239057885757496635
 MonoBehaviour:
   m_ObjectHideFlags: 0

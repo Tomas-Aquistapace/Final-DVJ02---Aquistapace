@@ -2,9 +2,10 @@
 
 public class Missile : MonoBehaviour
 {
-    [Header("Stats")]
-    public string objectiveTag;
-    public int damage = 10;
+    [Header("Explosion")]
+    //public string[] objectivesTags;
+    //public int damage = 10;
+    [SerializeField] GameObject blastObj;
 
     [Header("Visual Effects")]
     public GameObject explosionParticle;
@@ -27,14 +28,23 @@ public class Missile : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         GameObject explosion = Instantiate(explosionParticle, transform.position, transform.rotation);
-        Destroy(explosion, 5f);
+        Destroy(explosion, 3f);
+
+        GameObject blast = Instantiate(blastObj, transform.position, transform.rotation);
+
+        //for (int i = 0; i < objectivesTags.Length; i++)
+        //{
+        //
+        //    if (collision.transform.tag == objectivesTags[i])
+        //    {
+        //
+        //        Debug.LogError("Que onda");
+        //        collision.transform.GetComponent<IDamageable>().TakeDamage(damage);
+        //
+        //        break;
+        //    }
+        //}
 
         Destroy(this.gameObject);
-
-
-        if (collision.transform.tag == objectiveTag)
-        {
-            collision.transform.GetComponent<IDamageable>().TakeDamage(damage);
-        }
     }
 }
