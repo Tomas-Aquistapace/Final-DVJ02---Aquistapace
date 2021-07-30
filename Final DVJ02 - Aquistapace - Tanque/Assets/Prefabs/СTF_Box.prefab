@@ -125,6 +125,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   life: 1
+  collisionDamage: 0
+  popUpPref: {fileID: 8155486680537024800, guid: 0fc7e2df8e552fc409bfd503e517bf77,
+    type: 3}
+  personalCanvas: {fileID: 0}
 --- !u!1001 &6280375525892328789
 PrefabInstance:
   m_ObjectHideFlags: 0

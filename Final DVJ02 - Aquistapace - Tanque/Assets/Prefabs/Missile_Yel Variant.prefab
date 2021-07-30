@@ -15,7 +15,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!65 &715491023
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41,10 +41,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dce3953311564794b95b5debfa792263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectivesTags:
-  - Enemy
-  - Obstacle
-  damage: 10
   blastObj: {fileID: 1539440212861561616, guid: 1df6606f4afdada4faee17d4998d182e,
     type: 3}
   explosionParticle: {fileID: 1150934714579380, guid: 779aa8c25fbd0e1488637639c9fff976,
