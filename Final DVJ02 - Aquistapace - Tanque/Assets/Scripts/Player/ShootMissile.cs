@@ -8,11 +8,13 @@ public class ShootMissile : MonoBehaviour
     public Transform reticleTrans;
     public float rechargeTime = 2f;
 
+    PlayerStats player;
     TankAnimation tankAnimation;
     bool isLoaded;
 
     void Start()
     {
+        player = GetComponent<PlayerStats>();
         tankAnimation = GetComponent<TankAnimation>();
         isLoaded = true;
     }
@@ -24,7 +26,7 @@ public class ShootMissile : MonoBehaviour
 
     void FireTheTurret()
     {
-        if (Input.GetMouseButtonDown(1) && isLoaded)
+        if (Input.GetMouseButtonDown(1) && isLoaded && player.isLive)
         {
             StartCoroutine(Recharge());
 

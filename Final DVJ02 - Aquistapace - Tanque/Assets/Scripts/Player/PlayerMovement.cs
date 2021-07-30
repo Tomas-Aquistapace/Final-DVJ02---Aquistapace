@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour
     };
     BullStates bullStates;
 
-
     [Header("Basic Movement")]
     [SerializeField] float speedMovement = 10f;
     [SerializeField] float speedRotation = 6f;
@@ -41,12 +40,18 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        BullInput();
+        if (player.isLive)
+        {
+            BullInput();
+        }
     }
 
     void FixedUpdate()
     {
-        PlayerInput();
+        if (player.isLive)
+        {
+            PlayerInput();
+        }
     }
 
     void PlayerInput()

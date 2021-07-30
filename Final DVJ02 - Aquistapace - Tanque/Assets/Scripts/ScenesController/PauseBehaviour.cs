@@ -4,12 +4,44 @@ using UnityEngine.SceneManagement;
 public class PauseBehaviour : MonoBehaviour
 {
     [SerializeField] private GameObject pauseScreen;
-    [SerializeField] private GameObject pauseButton;
+    [SerializeField] private GameObject controlsScreen;
+
+    bool pauseState;
+    bool controlsState;
+
+    private void Awake()
+    {
+        pauseScreen.SetActive(false);
+
+        pauseState = false;
+        controlsState = false;
+    }
+
+    void Update()
+    {
+        InputPause();
+    }
+
+    void InputPause()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            pauseState = !pauseState;
+
+            if(pauseState == true)
+            {
+                ActivatePause();
+            }
+            else
+            {
+                DisablePause();
+            }
+        }
+    }
 
     public void ActivatePause()
     {
         pauseScreen.SetActive(true);
-        pauseButton.SetActive(false);
 
         Time.timeScale = 0f;
     }
@@ -17,15 +49,27 @@ public class PauseBehaviour : MonoBehaviour
     public void DisablePause()
     {
         pauseScreen.SetActive(false);
-        pauseButton.SetActive(true);
 
         Time.timeScale = 1f;
+    }
+
+    public void StateControlsScreen()
+    {
+        controlsState = !controlsState;
+
+        if (controlsState)
+        {
+            controlsScreen.SetActive(true);
+        }
+        else
+        {
+            controlsScreen.SetActive(false);
+        }
     }
 
     public void RestartAndDisablePause(string scene)
     {
         pauseScreen.SetActive(false);
-        pauseButton.SetActive(true);
 
         Time.timeScale = 1f;
 

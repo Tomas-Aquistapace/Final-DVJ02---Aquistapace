@@ -11,8 +11,12 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public int life = 100;
     public bool isLive = true;
 
+    TankAnimation tankAnimation;
+
     void Start()
     {
+        tankAnimation = GetComponent<TankAnimation>();
+
         life = maxLife;
 
         isLive = true;
@@ -33,6 +37,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void Eliminated()
     {
         isLive = false;
+
+        tankAnimation.ActivateDeadAnim();
 
         FinishGame(isLive);
     }

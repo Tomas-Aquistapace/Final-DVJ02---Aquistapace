@@ -11,6 +11,9 @@ public class TankAnimation : MonoBehaviour
     public GameObject shockWave;
     public Transform canyonTip;
 
+    [Header("Move Animations")]
+    public Animator moveAnimator;
+
     [Header("Loader Particles")]
     [SerializeField] GameObject[] radioLoader;
     [SerializeField] ParticleSystem[] bullSmokeInitial;
@@ -27,8 +30,6 @@ public class TankAnimation : MonoBehaviour
         {
             var col = bullParticle.colorOverLifetime;
             col.color = initialColor;
-
-            //bullParticle.Stop(false);
         }
 
         foreach (ParticleSystem bullParticle in bullSmokeLoader)
@@ -57,6 +58,11 @@ public class TankAnimation : MonoBehaviour
 
         GameObject particle = Instantiate(shockWave, canyonTip.position, canyonTip.rotation);
         Destroy(particle, 1f);
+    }
+
+    public void ActivateDeadAnim()
+    {
+        //moveAnimator.SetBool("IsDestroy", true);
     }
 
     public void MissileLoader(bool state)

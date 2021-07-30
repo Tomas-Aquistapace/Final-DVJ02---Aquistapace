@@ -15,8 +15,11 @@ public class RotationTurret : MonoBehaviour
     private Vector3 destinyRot;
     private Vector3 turretLookDir;
 
+    PlayerStats player;
+
     void Start()
     {
+        player = GetComponent<PlayerStats>();
         camera = GameObject.FindObjectOfType<Camera>();
 
         turretLookDir = reticleTrans.position - turret.position;
@@ -42,7 +45,7 @@ public class RotationTurret : MonoBehaviour
 
     void RotateTurret()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && player.isLive)
         {
             turretLookDir = reticleTrans.position - turret.position;
             turretLookDir.y = 0f;
