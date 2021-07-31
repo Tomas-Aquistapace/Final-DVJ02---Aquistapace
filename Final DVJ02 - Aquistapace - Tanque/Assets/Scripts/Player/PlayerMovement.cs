@@ -85,14 +85,14 @@ public class PlayerMovement : MonoBehaviour
         {
             if (collision.transform.tag == objectivesTags[i])
             {
-                if (bullStates == BullStates.Jumping)
-                {
-                    collision.transform.GetComponent<IDamageable>().TakeDamage(collisionDamage);
-                }
-
                 if (collision.transform.GetComponent<IObstacle>() != null)
                 {
                     player.TakeDamage(collision.transform.GetComponent<IObstacle>().MakeDamage());
+
+                    if (bullStates == BullStates.Jumping)
+                    {
+                        collision.transform.GetComponent<IDamageable>().TakeDamage(collisionDamage);
+                    }
                 }
 
                 break;

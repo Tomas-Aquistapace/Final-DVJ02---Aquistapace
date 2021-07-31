@@ -19468,6 +19468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxLife: 100
   life: 100
+  points: 0
   isLive: 1
 --- !u!114 &5118500853932484838
 MonoBehaviour:

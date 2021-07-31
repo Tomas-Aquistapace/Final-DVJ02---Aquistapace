@@ -30,8 +30,12 @@ public class UIManager : MonoBehaviour
 
     const float MINUTES = 60f;
 
+    int points = 0;
+
     private void Awake()
     {
+        points = 0;
+
         minutesClock = MaxMinutes;
         secondsClock = MaxSeconds;
 
@@ -43,6 +47,7 @@ public class UIManager : MonoBehaviour
         //PlayerStats.WinGame += ShowFinalScene;
         PlayerStats.CalculateLife += TotalLife;
         PlayerStats.FinishGame += ShowFinalScene;
+        PlayerStats.CalculatePoints += TotalPoints;
     }
 
     private void OnDisable()
@@ -50,6 +55,7 @@ public class UIManager : MonoBehaviour
         //PlayerStats.WinGame -= ShowFinalScene;
         PlayerStats.CalculateLife -= TotalLife;
         PlayerStats.FinishGame -= ShowFinalScene;
+        PlayerStats.CalculatePoints -= TotalPoints;
     }
 
     public void ShowFinalScene(bool result)
@@ -87,7 +93,9 @@ public class UIManager : MonoBehaviour
 
     public void TotalPoints(int amount)
     {
-        pointsTxt.text = amount.ToString();
+        points += amount;
+
+        pointsTxt.text = points.ToString();
     }
 
     private void LateUpdate()

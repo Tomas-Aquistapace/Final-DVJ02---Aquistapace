@@ -27,6 +27,8 @@ public class BlastMissile : MonoBehaviour
             {
                 other.transform.GetComponent<IDamageable>().TakeDamage(damage);
 
+                Debug.LogWarning(other.transform.name);
+
                 break;
             }
         }

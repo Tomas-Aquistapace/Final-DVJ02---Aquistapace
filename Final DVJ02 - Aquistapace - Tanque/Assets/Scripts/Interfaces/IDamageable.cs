@@ -3,4 +3,5 @@
     void TakeDamage(int damage);
 
     void Eliminated();
+
 }
