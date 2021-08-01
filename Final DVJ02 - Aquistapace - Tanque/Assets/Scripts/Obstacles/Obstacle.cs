@@ -20,6 +20,8 @@ public class Obstacle : MonoBehaviour, IDamageable, IObstacle
     {
         life -= damage;
 
+        PopUpManager.CallPopUp(this.transform, damage, false);
+
         if (life <= 0)
         {
             PlayerStats.CalculatePoints(pointsValue);
@@ -35,6 +37,8 @@ public class Obstacle : MonoBehaviour, IDamageable, IObstacle
 
     public void Eliminated()
     {
+
+
         Destroy(this.gameObject);
     }
 

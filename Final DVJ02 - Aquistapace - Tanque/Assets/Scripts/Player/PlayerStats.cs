@@ -29,8 +29,6 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     public void EarnPoints(int newPoints)
     {
-        Debug.Log("-");
-
         points += newPoints;
     }
 
@@ -46,6 +44,8 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         life -= damage;
+
+        PopUpManager.CallPopUp(this.transform, damage, true);
 
         CalculateLife(maxLife, life);
 
