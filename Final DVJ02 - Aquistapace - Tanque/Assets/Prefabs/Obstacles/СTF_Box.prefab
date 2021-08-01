@@ -127,6 +127,9 @@ MonoBehaviour:
   life: 1
   collisionDamage: 0
   pointsValue: 10
+  destroyOnColl: 0
+  destroyParticle: {fileID: 3352521485378951289, guid: dee3f1309e0bdf540b981621a9866d8e,
+    type: 3}
 --- !u!1001 &6280375525892328789
 PrefabInstance:
   m_ObjectHideFlags: 0

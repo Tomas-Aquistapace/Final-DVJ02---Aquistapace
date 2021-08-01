@@ -7,6 +7,8 @@ public class Obstacle : MonoBehaviour, IDamageable, IObstacle
     [SerializeField] int pointsValue = 0;
     [SerializeField] bool destroyOnColl = false;
 
+    public GameObject destroyParticle;
+
     private void OnEnable()
     {
         PlayerStats.CalculatePoints += GivePoints;
@@ -38,6 +40,8 @@ public class Obstacle : MonoBehaviour, IDamageable, IObstacle
 
     public void Eliminated()
     {
+        GameObject go = Instantiate(destroyParticle, transform.position, transform.rotation);
+        Destroy(go, 3f);
         Destroy(this.gameObject);
     }
 
