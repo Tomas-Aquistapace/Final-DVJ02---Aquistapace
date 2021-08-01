@@ -16,9 +16,10 @@ public class UIManager : MonoBehaviour
     public string endScene;
 
     [Header("UI Texts")]
-    public TextMeshProUGUI lifesTxt;
+    public TextMeshProUGUI lifesText;
     public Image lifesPng;
-    public TextMeshProUGUI pointsTxt;
+    public TextMeshProUGUI pointsText;
+    public TextMeshProUGUI distanceText;
     public TextMeshProUGUI timeMinutesText;
     public TextMeshProUGUI timeSecondsText;
 
@@ -58,6 +59,11 @@ public class UIManager : MonoBehaviour
         PlayerStats.CalculatePoints -= TotalPoints;
     }
 
+    void Update()
+    {
+        distanceText.text = player.GetComponent<PlayerMovement>().distanceTraveled.ToString("0.0");
+    }
+
     public void ShowFinalScene(bool result)
     {
         //GameManager.instance.finalState = result;
@@ -95,7 +101,7 @@ public class UIManager : MonoBehaviour
     {
         points += amount;
 
-        pointsTxt.text = points.ToString();
+        pointsText.text = points.ToString();
     }
 
     private void LateUpdate()

@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Basic Movement")]
     [SerializeField] float speedMovement = 10f;
     [SerializeField] float speedRotation = 6f;
+    public float distanceTraveled = 0f;
 
     [Header("Bull Stroke")]
     [SerializeField] float timeToLoad = 3f;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
     float vertical;
     float horizontal;
+    Vector3 oldPos;
 
     void Start()
     {
@@ -36,6 +38,9 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<PlayerStats>();
 
         bullStates = BullStates.Ready;
+
+        distanceTraveled = 0f;
+        oldPos = transform.position;
     }
 
     void Update()
@@ -43,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
         if (player.isLive)
         {
             BullInput();
+            CalculateDistanceTrav();
         }
     }
 
@@ -53,6 +59,19 @@ public class PlayerMovement : MonoBehaviour
             PlayerInput();
         }
     }
+    
+    void CalculateDistanceTrav()
+    {
+        if(vertical != 0)
+        {
+            Vector3 distance = transform.position - oldPos;
+
+            distanceTraveled += distance.magnitude;
+
+            oldPos = transform.position;
+        }
+    }
+
 
     void PlayerInput()
     {

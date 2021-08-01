@@ -5,6 +5,7 @@ public class Obstacle : MonoBehaviour, IDamageable, IObstacle
     [SerializeField] int life = 1;
     [SerializeField] int collisionDamage = 0;
     [SerializeField] int pointsValue = 0;
+    [SerializeField] bool destroyOnColl = false;
 
     private void OnEnable()
     {
@@ -37,13 +38,22 @@ public class Obstacle : MonoBehaviour, IDamageable, IObstacle
 
     public void Eliminated()
     {
-
-
         Destroy(this.gameObject);
     }
 
     public int MakeDamage()
     {
         return collisionDamage;
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.transform.tag == "Player")
+        {
+            if (destroyOnColl)
+            {
+                Eliminated();
+            }
+        }
     }
 }

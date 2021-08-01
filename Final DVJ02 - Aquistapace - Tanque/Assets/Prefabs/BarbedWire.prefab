@@ -204,7 +204,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 1
   collisionDamage: 10
-  pointsValue: 5
+  pointsValue: 2
 --- !u!1 &2315310442473328267
 GameObject:
   m_ObjectHideFlags: 0

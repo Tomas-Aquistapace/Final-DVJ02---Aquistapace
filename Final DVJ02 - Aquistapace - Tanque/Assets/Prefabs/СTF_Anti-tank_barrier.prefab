@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 100
   collisionDamage: 10
+  pointsValue: 5

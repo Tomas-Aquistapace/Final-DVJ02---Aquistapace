@@ -11,7 +11,7 @@ public class PauseBehaviour : MonoBehaviour
 
     private void Awake()
     {
-        pauseScreen.SetActive(false);
+        DisablePause();
 
         pauseState = false;
         controlsState = false;
