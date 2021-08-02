@@ -26,7 +26,7 @@ public class ShootMissile : MonoBehaviour
 
     void FireTheTurret()
     {
-        if (Input.GetMouseButtonDown(1) && isLoaded && player.isLive)
+        if (Input.GetMouseButtonDown(1) && isLoaded && player.pState == PlayerStats.State.Playing)
         {
             StartCoroutine(Recharge());
 

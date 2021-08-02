@@ -45,7 +45,7 @@ public class RotationTurret : MonoBehaviour
 
     void RotateTurret()
     {
-        if (Input.GetMouseButton(0) && player.isLive)
+        if (Input.GetMouseButton(0) && player.pState == PlayerStats.State.Playing)
         {
             turretLookDir = reticleTrans.position - turret.position;
             turretLookDir.y = 0f;

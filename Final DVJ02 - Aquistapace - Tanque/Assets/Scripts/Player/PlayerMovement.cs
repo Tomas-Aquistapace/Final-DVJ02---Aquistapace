@@ -45,7 +45,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (player.isLive)
+        if (player.pState == PlayerStats.State.Playing)
         {
             BullInput();
             CalculateDistanceTrav();
@@ -54,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (player.isLive)
+        if (player.pState == PlayerStats.State.Playing)
         {
             PlayerInput();
         }

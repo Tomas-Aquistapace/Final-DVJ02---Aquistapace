@@ -1,5 +1,4 @@
-﻿using UnityEngine.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -12,10 +11,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] Color twoQuarters = Color.yellow;
     [SerializeField] Color oneQuarters = Color.red;
 
-    [Header("Posters")]
-    public string endScene;
+    [Header("End Game")]
+    public GameObject endPoster;
+    public GameObject victoryText;
+    public GameObject failedText;
+    public TextMeshProUGUI finalPointsText;
+    public TextMeshProUGUI finalDistanceText;
 
-    [Header("UI Texts")]
+    [Header("UI Player")]
+    public GameObject HUD;
     public TextMeshProUGUI lifesText;
     public Image lifesPng;
     public TextMeshProUGUI pointsText;
@@ -23,40 +27,34 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI timeMinutesText;
     public TextMeshProUGUI timeSecondsText;
 
-    private float minutesClock;
-    private float secondsClock;
-
-    private float MaxMinutes = 3f;
-    private float MaxSeconds = 0f;
-
-    const float MINUTES = 60f;
-
     int points = 0;
 
     private void Awake()
     {
         points = 0;
 
-        minutesClock = MaxMinutes;
-        secondsClock = MaxSeconds;
-
         lifesPng.color = fullLife;
+        lifesText.color = fullLife;
+        lifesText.text = player.GetComponent<PlayerStats>().maxLife.ToString();
+
+        endPoster.SetActive(false);
+        HUD.SetActive(true);
     }
 
     private void OnEnable()
     {
-        //PlayerStats.WinGame += ShowFinalScene;
         PlayerStats.CalculateLife += TotalLife;
-        PlayerStats.FinishGame += ShowFinalScene;
+        PlayerStats.FinishGame += ShowFinalPoster;
         PlayerStats.CalculatePoints += TotalPoints;
+        PlayerStats.FinishGame += ShowFinalPoster;
     }
 
     private void OnDisable()
     {
-        //PlayerStats.WinGame -= ShowFinalScene;
         PlayerStats.CalculateLife -= TotalLife;
-        PlayerStats.FinishGame -= ShowFinalScene;
+        PlayerStats.FinishGame -= ShowFinalPoster;
         PlayerStats.CalculatePoints -= TotalPoints;
+        PlayerStats.FinishGame -= ShowFinalPoster;
     }
 
     void Update()
@@ -64,11 +62,24 @@ public class UIManager : MonoBehaviour
         distanceText.text = player.GetComponent<PlayerMovement>().distanceTraveled.ToString("0.0");
     }
 
-    public void ShowFinalScene(bool result)
+    public void ShowFinalPoster(bool result)
     {
-        //GameManager.instance.finalState = result;
+        endPoster.SetActive(true);
+        HUD.SetActive(false);
 
-        //SceneManager.LoadScene(endScene);
+        finalPointsText.text = points.ToString();
+        finalDistanceText.text = player.GetComponent<PlayerMovement>().distanceTraveled.ToString("0.0");
+
+        if (result)
+        {
+            victoryText.SetActive(true);
+            failedText.SetActive(false);
+        }
+        else
+        {
+            victoryText.SetActive(false);
+            failedText.SetActive(true);
+        }
     }
 
     // ------------------
@@ -82,19 +93,25 @@ public class UIManager : MonoBehaviour
         if (life <= maxLife && life > treeQuarLife)
         {
             lifesPng.color = fullLife;
+            lifesText.color = fullLife;
         }
         else if (life <= treeQuarLife && life > twoQuarLife)
         {
             lifesPng.color = treeQuarters;
+            lifesText.color = treeQuarters;
         }
         else if (life <= twoQuarLife && life > oneQuarLife)
         {
             lifesPng.color = twoQuarters;
+            lifesText.color = twoQuarters;
         }
         else if (life <= oneQuarLife && life > 0)
         {
             lifesPng.color = oneQuarters;
+            lifesText.color = oneQuarters;
         }
+
+        lifesText.text = life.ToString();
     }
 
     public void TotalPoints(int amount)
@@ -106,15 +123,8 @@ public class UIManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        secondsClock -= Time.deltaTime;
+        timeSecondsText.text = Mathf.Floor(GameManager.instance.secondsClock).ToString();
 
-        timeSecondsText.text = Mathf.Floor(secondsClock).ToString();
-
-        if (secondsClock < 0)
-        {
-            secondsClock = MINUTES;
-            minutesClock--;
-            timeMinutesText.text = minutesClock.ToString();
-        }
+        timeMinutesText.text = GameManager.instance.minutesClock.ToString();
     }
 }

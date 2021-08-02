@@ -3,11 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class PauseBehaviour : MonoBehaviour
 {
+    [SerializeField] Transform player;
     [SerializeField] private GameObject pauseScreen;
     [SerializeField] private GameObject controlsScreen;
 
     bool pauseState;
     bool controlsState;
+
 
     private void Awake()
     {
@@ -24,7 +26,7 @@ public class PauseBehaviour : MonoBehaviour
 
     void InputPause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && player.GetComponent<PlayerStats>().pState == PlayerStats.State.Playing)
         {
             pauseState = !pauseState;
 

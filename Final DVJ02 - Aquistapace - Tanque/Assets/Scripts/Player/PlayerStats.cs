@@ -2,6 +2,14 @@
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
+    public enum State
+    { 
+        Playing,
+        Win,
+        Lose
+    };
+    [HideInInspector] public State pState;
+
     public delegate void CheckLife(int maxLife, int life);
     public static CheckLife CalculateLife;
     public delegate void CheckPoints(int newPoints);
@@ -20,17 +28,14 @@ public class PlayerStats : MonoBehaviour, IDamageable
     void OnEnable()
     {
         CalculatePoints += EarnPoints;
+        FinishGame += ChangeState;
     }
 
     void OnDisable()
     {
         CalculatePoints -= EarnPoints;
-    }
-
-    public void EarnPoints(int newPoints)
-    {
-        points += newPoints;
-    }
+        FinishGame -= ChangeState;
+    }    
 
     void Start()
     {
@@ -39,6 +44,7 @@ public class PlayerStats : MonoBehaviour, IDamageable
         life = maxLife;
 
         isLive = true;
+        pState = State.Playing;
     }
 
     public void TakeDamage(int damage)
@@ -62,5 +68,24 @@ public class PlayerStats : MonoBehaviour, IDamageable
         tankAnimation.ActivateDeadAnim();
 
         FinishGame(isLive);
+    }
+
+    // ----------------------------
+    
+    public void EarnPoints(int newPoints)
+    {
+        points += newPoints;
+    }
+
+    public void ChangeState(bool state)
+    {
+        if(state)
+        {
+            pState = State.Win;
+        }
+        else
+        {
+            pState = State.Lose;
+        }
     }
 }
