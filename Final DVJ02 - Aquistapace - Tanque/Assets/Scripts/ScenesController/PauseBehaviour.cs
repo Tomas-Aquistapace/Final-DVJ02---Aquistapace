@@ -8,15 +8,10 @@ public class PauseBehaviour : MonoBehaviour
     [SerializeField] private GameObject controlsScreen;
 
     bool pauseState;
-    bool controlsState;
-
 
     private void Awake()
     {
         DisablePause();
-
-        pauseState = false;
-        controlsState = false;
     }
 
     void Update()
@@ -53,20 +48,6 @@ public class PauseBehaviour : MonoBehaviour
         pauseScreen.SetActive(false);
 
         Time.timeScale = 1f;
-    }
-
-    public void StateControlsScreen()
-    {
-        controlsState = !controlsState;
-
-        if (controlsState)
-        {
-            controlsScreen.SetActive(true);
-        }
-        else
-        {
-            controlsScreen.SetActive(false);
-        }
     }
 
     public void RestartAndDisablePause(string scene)

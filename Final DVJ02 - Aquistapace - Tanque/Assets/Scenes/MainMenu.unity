@@ -1844,7 +1844,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2087189755}
-        m_MethodName: CloseCredit
+        m_MethodName: CloseWithAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2177,7 +2177,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 2087189755}
-        m_MethodName: CallCredit
+        m_MethodName: CallWithAnimation
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2280,8 +2280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8a2cf2542de3d44383e7275c7483c67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  credits: {fileID: 1410318731}
-  closeButton: {fileID: 1878249690}
+  layer: {fileID: 1410318727}
 --- !u!1001 &7017324840436579542
 PrefabInstance:
   m_ObjectHideFlags: 0
