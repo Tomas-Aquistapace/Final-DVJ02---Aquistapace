@@ -21,6 +21,10 @@ public class TankAnimation : MonoBehaviour
     [SerializeField] Gradient initialColor;
     [SerializeField] Gradient loadingColor;
 
+    [Header("Destroy Effects")]
+    [SerializeField] GameObject destroyParticle;
+    [SerializeField] GameObject detroyedTank;
+
     void Start()
     {
         radioLoader[0].SetActive(true);
@@ -63,6 +67,11 @@ public class TankAnimation : MonoBehaviour
     public void ActivateDeadAnim()
     {
         //moveAnimator.SetBool("IsDestroy", true);
+        GameObject explosion = Instantiate(destroyParticle, transform.position, transform.rotation);
+        Destroy(explosion, 5f);
+
+        GameObject newTank = Instantiate(detroyedTank, transform.position, transform.rotation);
+        this.gameObject.SetActive(false);
     }
 
     public void MissileLoader(bool state)

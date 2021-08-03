@@ -16,15 +16,11 @@ public class CallLayer : MonoBehaviour
 
     public void CallWithAnimation()
     {
-        //anim.SetTrigger("Activate");
-
         anim.SetBool("State", true);
     }
 
     public void CloseWithAnimation()
     {
-        //anim.SetTrigger("Activate");
-
         anim.SetBool("State", false);
     }
 

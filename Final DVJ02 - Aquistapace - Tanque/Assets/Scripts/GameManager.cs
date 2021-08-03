@@ -40,7 +40,7 @@ public class GameManager : MonoBehaviour
             {
                 minutesClock--;
 
-                if (minutesClock <= 0 && secondsClock <= 0)
+                if (minutesClock < 0 && secondsClock <= 0)
                 {
                     PlayerStats.FinishGame(player.GetComponent<PlayerStats>().isLive);
                     activateTimer = false;

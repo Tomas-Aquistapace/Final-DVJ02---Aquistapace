@@ -128,6 +128,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 150576274}
     m_Modifications:
+    - target: {fileID: 2096655223998599486, guid: 7a8d4497917e13347ac8400f869a078a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4650449017522596256, guid: 7a8d4497917e13347ac8400f869a078a,
         type: 3}
       propertyPath: m_Name
@@ -722,7 +727,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 727902976}
   m_LocalRotation: {x: -0.08302781, y: -0.5239194, z: 0.05140728, w: -0.84615135}
-  m_LocalPosition: {x: 1.8091269, y: 1.5839708, z: -4.4560513}
+  m_LocalPosition: {x: 1.54, y: 1.5839708, z: -4.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -834,7 +839,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 727902978}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -1422,7 +1427,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 493, y: 178}
+  m_AnchoredPosition: {x: 492.99994, y: 178}
   m_SizeDelta: {x: 941.8, y: 430.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1410318729
@@ -2347,6 +2352,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NPC Tank
+      objectReference: {fileID: 0}
+    - target: {fileID: 6742282744978487612, guid: 82631eadccc06a3409d3407b594286c8,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82631eadccc06a3409d3407b594286c8, type: 3}
