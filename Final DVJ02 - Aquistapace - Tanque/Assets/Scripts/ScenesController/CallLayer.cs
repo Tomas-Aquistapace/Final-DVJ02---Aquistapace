@@ -2,14 +2,14 @@
 
 public class CallLayer : MonoBehaviour
 {
-    [SerializeField] private GameObject layer;
+    //[SerializeField] private GameObject layer;
 
     Animator anim;
     bool state;
 
     private void Awake()
     {
-        anim = layer.GetComponent<Animator>();
+        anim = this.transform.GetComponent<Animator>();
 
         state = false;
     }
@@ -30,13 +30,13 @@ public class CallLayer : MonoBehaviour
         {
             state = true;
 
-            layer.SetActive(state);
+            this.gameObject.SetActive(state);
         }
         else
         {
             state = false;
 
-            layer.SetActive(state);
+            this.gameObject.SetActive(state);
         }
     }
 }

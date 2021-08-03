@@ -682,9 +682,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.73
-  m_Height: 0
+  m_Height: 2.6724253
   m_Direction: 1
-  m_Center: {x: 0.03, y: 0, z: 0.03}
+  m_Center: {x: 0.029999971, y: 0.25088835, z: 0.029999971}
 --- !u!114 &4796448969022270750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -717,8 +717,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   missile: {fileID: 5202619740504706685, guid: ac682d83d412f6d428ac3c1e6a2b6f6b, type: 3}
   missilePos: {x: 0, y: 10, z: 0}
-  shockWave: {fileID: 0}
-  canyonTip: {fileID: 0}
+  shockWave: {fileID: 2062406350526352771, guid: 1698f5fbc2c5dc04581b6642e6ceaed4,
+    type: 3}
+  canyonTip: {fileID: 4796448968238684793}
   crosshair: {fileID: 4796448968413425979}
   speedCrosshair: 2
   cannon: {fileID: 4796448969418886404}

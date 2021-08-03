@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5202619740504706687}
   - component: {fileID: 5202619740504706684}
   - component: {fileID: 5202619740504706686}
-  m_Layer: 11
+  m_Layer: 12
   m_Name: Mortar_Missile
-  m_TagString: Obstacle
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
