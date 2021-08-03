@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1539440212861561616
+--- !u!1 &1148674778762041738
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,23 +8,23 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1539440212861561617}
-  - component: {fileID: 1539440212861561623}
-  - component: {fileID: 1539440212861561622}
-  m_Layer: 10
-  m_Name: Blast Explosion
+  - component: {fileID: 1148674778762041739}
+  - component: {fileID: 1148674778762041741}
+  - component: {fileID: 1148674778762041740}
+  m_Layer: 11
+  m_Name: Enemy Blast Explosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1539440212861561617
+--- !u!4 &1148674778762041739
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539440212861561616}
+  m_GameObject: {fileID: 1148674778762041738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.253, y: 0, z: 11.802}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,34 +32,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &1539440212861561623
+--- !u!135 &1148674778762041741
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539440212861561616}
+  m_GameObject: {fileID: 1148674778762041738}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1539440212861561622
+--- !u!114 &1148674778762041740
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1539440212861561616}
+  m_GameObject: {fileID: 1148674778762041738}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76c11062693eaa44bbd2ed9c3ebbbc96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blastRadius: 0.75
-  damage: 10
+  blastRadius: 1.2
+  damage: 20
   objectivesTags:
-  - Enemy
-  - Obstacle
+  - Player
   blastTime: 0.5

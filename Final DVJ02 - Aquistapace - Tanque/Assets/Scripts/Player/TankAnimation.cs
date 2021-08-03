@@ -66,7 +66,6 @@ public class TankAnimation : MonoBehaviour
 
     public void ActivateDeadAnim()
     {
-        //moveAnimator.SetBool("IsDestroy", true);
         GameObject explosion = Instantiate(destroyParticle, transform.position, transform.rotation);
         Destroy(explosion, 5f);
 
